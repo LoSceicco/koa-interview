@@ -14,12 +14,15 @@ router.get('/', ctx => {
 // EXPLANATION: [your explanation here]
 
 // EXCERCISE 2 - Modify the code to accept a body parameter "increment" (assume is number) and increment by the same value
-// tip: ctx.body will give you the request body object
+// if not provided, the default value is 1
+// tip: ctx.request.body will give you the request body object
 
 // increment
 router.post('/increment', ctx => {
+  console.log('body is: ', ctx.request.body)
+
   const oldCounter = counter;
-  counter.count++;
+  counter.count += 1;
 
   ctx.body = {
     oldCounter,

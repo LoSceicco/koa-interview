@@ -1,7 +1,8 @@
 const Koa = require('koa');
+const bodyParser = require('koa-bodyparser');
 const router = require('./router');
 const app = new Koa();
-
+app.use(bodyParser());
 // global
 // logger
 app.use(async (ctx, next) => {
@@ -21,3 +22,4 @@ app.use(async (ctx, next) => {
 app.use(router.routes());
 
 app.listen(3001);
+console.log('Server listening on port 3001');
